@@ -1,33 +1,25 @@
-//DEPENDENCIES
-const cors = require("cors");
-const express = require("express");
-
-//CONFIGURATION
-const app = express();
-
-//MIDDLEWARE
-app.use(cors());
-app.use(express.json());
-
-//ROUTES    
-app.get("/", (req, res) => {
-    res.send("Welcome to my Music Playlist!");
-});
-
-//songs Routes
-const songsController = require("./controllers/songsController.js");
-app.use("/songs", songsController);
-
-
-
-//EXPORT
-module.exports = app;
-
-/*
 
 ### Review Questions
-Memorize answers:
 
+**What did the above steps do? Try to put it in your own words. It's essential to learn to talk about code.**
+
+1. Navigate to a convenient folder (e.g., Desktop).
+2. Check the current Git status to ensure you are not in an existing Git repository.
+3. Create a new directory called `pg-songs-api` and navigate into it.
+4. Create a `.gitignore` file to specify files and folders Git should ignore.
+5. Create the `server.js` file.
+6. Initialize a new Node.js project with `npm init -y`, which creates a `package.json` file with default settings.
+7. Create additional necessary files (`app.js`, `.env`).
+8. Install essential packages (`express`, `dotenv`, `cors`).
+9. Initialize a new Git repository.
+10. Add all files to the staging area.
+11. Commit the files with the message 'first commit'.
+
+### `.env`
+
+**What are acceptable port numbers?**
+
+Acceptable port numbers range from 0 to 65535. However, ports below 1024 are reserved for well-known services (e.g., HTTP uses port 80, HTTPS uses port 443). For development purposes, ports above 1024, such as 3000, 3001, 8080, etc., are commonly used.
 
 ### `app.js`
 
@@ -79,22 +71,21 @@ The `app.get()` method defines a route handler for GET requests to the specified
 
 ```bash
 mkdir controllers
-touch controllers/songssController.js
+touch controllers/songsController.js
 ```
 
-**Contents of `controllers/songssController.js`**:
+**Contents of `controllers/songsController.js`**:
 
 ```js
 const express = require("express");
-const songss = express.Router();
+const songs = express.Router();
 
 // INDEX
-songss.get("/", (req, res) => {
+songs.get("/", (req, res) => {
   res.json({ status: "ok" });
 });
 
-module.exports = songss;
+module.exports = songs;
 ```
 
-The `songssController.js` file sets up a router for handling routes related to songss. The `songss.get()` method defines a route handler for GET requests to the `/` path, responding with a JSON object indicating the status. The router is then exported for use in other parts of the application.
-*/
+The `songsController.js` file sets up a router for handling routes related to songs. The `songs.get()` method defines a route handler for GET requests to the `/` path, responding with a JSON object indicating the status. The router is then exported for use in other parts of the application.
