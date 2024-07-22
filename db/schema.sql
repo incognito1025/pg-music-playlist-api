@@ -1,11 +1,14 @@
 -- db/schema.sql
-DROP DATABASE IF EXISTS solors_dev;
-CREATE DATABASE colors_dev;
+DROP DATABASE IF EXISTS songs_dev;
+CREATE DATABASE songs_dev;
 
-\c colors_dev;
+\c songs_dev;
 
-CREATE TABLE colors (
- id SERIAL PRIMARY KEY,
- name TEXT NOT NULL,
- is_favorite BOOLEAN
+CREATE TABLE songs (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  artist TEXT NOT NULL,
+  album TEXT,
+  time TEXT,
+  is_favorite BOOLEAN
 );
