@@ -14,11 +14,11 @@ songs.get("/", async (req, res) => {
 
 
 //SHOW
-songs.get("/:id", async (req, res) => {
+songs.get("/:id", async (req, res) => { //route handler
     const { id } = req.params;
     const song = await getSong(id);
     if (song) {
-        res.json(song);
+        res.status(200).json(song); //200 is `ok`
     } else {
         res.status(404).json({error: "not found"});
     }
